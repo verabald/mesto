@@ -7,3 +7,9 @@
     align-items: center;
     align-content: center;
 }
+
+@media screen and (max-width: 680px) {
+    .profile__info {
+        align-items: baseline;
+    }
+  } 

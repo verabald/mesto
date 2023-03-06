@@ -4,3 +4,9 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
+@media screen and (max-width: 426px) {
+    .header__link {
+        margin: 28px 0 27px 0;
+    }
+  } 

@@ -1,8 +1,10 @@
 .elements__like-button {
-    max-width: 22px;
-    max-height: 19px;
+    min-width: 22px;
+    min-height: 19px;
     margin: 30px 30px 30px 0;
-    background-color: #FFFFFF;
+    background-image: url(../../../images/elements-like.svg);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 @media (hover: hover) {

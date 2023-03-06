@@ -9,3 +9,10 @@
         transition: opacity 1s ease-in;
     }
   }
+
+@media screen and (max-width: 426px) {
+    .header__logo {
+        max-width: 103.74px;
+        max-height: 24.4px;
+    }
+  } 
