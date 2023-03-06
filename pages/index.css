@@ -30,15 +30,21 @@
 }
 
 .header__logo {
-    margin: 45px 0 41px 0;
     max-width: 142px;
     max-height: 33px;
 }
 
+.header__link {
+    margin: 45px 0 41px 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
 .header__line {
+    width: 100%;
     margin: 0 0 45px 0;
     padding: 0;
-    width: 100%;
     border-bottom: 1px solid #545454;
     opacity: 0.7;
 }
@@ -93,13 +99,10 @@
 }
 
 .profile__edit-button {
-    margin: 0 0 0 18px;
-    padding: 0;
     max-width: 24px;
     max-height: 24px;
+    margin: 0 0 0 18px;
     background-color: #000000;
-    border: none;
-    cursor: pointer;
 }
 
 .profile__profession {
@@ -114,13 +117,10 @@
 }
 
 .profile__add-button {
-    margin: 0;
-    padding: 0;
     max-width: 150px;
     max-height: 50px;
+    margin: 0;
     background-color: #000000;
-    border: none;
-    cursor: pointer;
 }
 
 .elements {
@@ -181,13 +181,14 @@
 }
 
 .elements__like-button {
-    margin: 30px 30px 30px 0;
-    padding: 0;
     max-width: 22px;
     max-height: 19px;
+    margin: 30px 30px 30px 0;
     background-color: #FFFFFF;
-    border: none;
-    cursor: pointer;
+}
+
+.elements__like-button_active {
+    background-color: #000000;
 }
 
 .footer {
@@ -217,15 +218,19 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.popup_opened {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .popup__container {
+    min-width: 430px;
+    min-height: 330px;
     margin: 0;
     padding: 36px;
     box-sizing: border-box;
-    min-width: 430px;
-    min-height: 330px;
     position: fixed;
-    top: 195px;
-    left: 425px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -245,10 +250,10 @@
 }
 
 .popup__input {
+    min-height: 30px;
     margin: 0;
     padding: 0;
     border: 0;
-    min-height: 30px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     font-family: 'Inter';
     font-style: normal;
@@ -259,10 +264,9 @@
 }
 
 .popup__button-submit {
-    margin: 0;
-    padding: 0;
     max-width: 358px;
     min-height: 50px;
+    margin: 0;
     background-color: #000000;
     color: #FFFFFF;
     font-family: 'Inter';
@@ -271,21 +275,23 @@
     font-size: 18px;
     line-height: 1.4;
     text-align: center;
-    border: none;
-    cursor: pointer;
 }
 
 .popup__button-close {
-    margin: 0;
-    padding: 0;
     max-width: 32px;
     max-height: 32px;
+    margin: 0;
     background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 430px;
+    bottom: 330px;
+}
+
+.button {
+    padding: 0;
     border: none;
     cursor: pointer;
-    position: fixed;
-    top: 155px;
-    left: 863px;
-
 }
+ 
+
 

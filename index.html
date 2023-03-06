@@ -11,7 +11,9 @@
 <body class="page">
 
   <header class="header section">
-    <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Место Россия">
+    <a class="header__link" href="#">
+      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Место Россия">
+    </a> 
     <div class="header__line"></div>
   </header>
 
@@ -21,13 +23,13 @@
       <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватар профиля">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
-        <button class="profile__edit-button">
+        <button class="profile__edit-button button">
           <img src="./images/profile-edit_button.svg" alt="Кнопка редактирования">
         </button>
         <p class="profile__profession">Исследователь океана</p>
       </div>
       </div>
-      <button class="profile__add-button">
+      <button class="profile__add-button button">
         <img src="./images/profile-add_button.svg" alt="Кнопка добавления">
       </button>
     </section>
@@ -38,7 +40,7 @@
           <img class="elements__image" src="./images/elements-karachaevsk.jpg" alt="Старый храм на обрыве">
           <div class="elements__box">
             <h2  class="elements__caption">Карачаевск</h2>
-            <button class="elements__like-button">
+            <button class="elements__like-button button">
               <img src="./images/elements-like.svg" alt="Кнопка лайк">
             </button>
           </div>
@@ -47,7 +49,7 @@
           <img class="elements__image" src="./images/elements-gizgit.jpg" alt="Озеро среди зелёных холмов">
           <div class="elements__box">
             <h2  class="elements__caption">Озеро Гижгит</h2>
-            <button class="elements__like-button">
+            <button class="elements__like-button button">
               <img src="./images/elements-like.svg" alt="Кнопка лайк">
             </button>
           </div>
@@ -56,7 +58,7 @@
           <img class="elements__image" src="./images/elements-dombay.jpg" alt="Высокая гора подле леса">
           <div class="elements__box">
             <h2  class="elements__caption">Гора Домбай</h2>
-            <button class="elements__like-button">
+            <button class="elements__like-button button">
               <img src="./images/elements-like.svg" alt="Кнопка лайк">
             </button>
           </div>
@@ -65,7 +67,7 @@
           <img class="elements__image" src="./images/elements-adil_su.jpg" alt="Камни возле лесистой горы">
           <div class="elements__box">
             <h2  class="elements__caption">Ущелье Адыл-су</h2>
-            <button class="elements__like-button">
+            <button class="elements__like-button button">
               <img src="./images/elements-like.svg" alt="Кнопка лайк">
             </button>
           </div>
@@ -74,7 +76,7 @@
           <img class="elements__image" src="./images/elements-jili_su.jpg" alt="Водопад в расщелине горы">
           <div class="elements__box">
             <h2  class="elements__caption">Урочище Джилы-Су</h2>
-            <button class="elements__like-button">
+            <button class="elements__like-button button">
               <img src="./images/elements-like.svg" alt="Кнопка лайк">
             </button>
           </div>
@@ -83,7 +85,7 @@
           <img class="elements__image" src="./images/elements-karachaevo.jpg" alt="Поле с коровами">
           <div class="elements__box">
             <h2  class="elements__caption">Карачаево-Черкесия</h2>
-            <button class="elements__like-button">
+            <button class="elements__like-button button">
               <img src="./images/elements-like.svg" alt="Кнопка лайк">
             </button>
           </div>
@@ -98,16 +100,16 @@
 
   <div class="popup">
     <form class="popup__container">
+      <button class="popup__button-close button">
+        <img src="./images/form-close_icon.svg" alt="Кнопка закрыть">
+      </button>
       <h2 class="popup__title">Редактировать профиль</h2>
   
       <input class="popup__input" type="text" name="name" value="Жак-Ив Кусто" required>
   
       <input class="popup__input" type="text" name="profession" value="Исследователь океана" required>
   
-      <button class="popup__button-submit" type="submit">Сохранить</button>
-      <button class="popup__button-close">
-        <img src="./images/form-close_icon.svg" alt="Кнопка закрыть">
-      </button>
+      <button class="popup__button-submit button" type="submit">Сохранить</button>
     </form>
   </div>
 
