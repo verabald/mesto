@@ -1,0 +1,9 @@
+.profile__info {
+    margin: 0 0 0 34px;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    align-content: center;
+}

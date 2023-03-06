@@ -1,0 +1,13 @@
+.popup__button-submit {
+    max-width: 358px;
+    min-height: 50px;
+    margin: 0;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+}
