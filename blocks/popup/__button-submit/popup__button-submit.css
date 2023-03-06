@@ -2,6 +2,7 @@
     max-width: 358px;
     min-height: 50px;
     margin: 0;
+    border-radius: 2px;
     background-color: #000000;
     color: #FFFFFF;
     font-family: 'Inter';
@@ -10,4 +11,11 @@
     font-size: 18px;
     line-height: 1.4;
     text-align: center;
+}
+
+@media (hover: hover) {
+.popup__button-submit:hover {
+    opacity: 0.8;
+    transition: opacity 1s ease-in;
+}
 }

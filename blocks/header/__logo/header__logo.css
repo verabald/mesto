@@ -2,3 +2,10 @@
     max-width: 142px;
     max-height: 33px;
 }
+
+@media (hover: hover) {
+    .header__logo:hover {
+        opacity: 0;
+        transition: opacity 1s ease-in;
+    }
+  }

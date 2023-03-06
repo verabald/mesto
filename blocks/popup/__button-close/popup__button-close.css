@@ -7,3 +7,10 @@
     left: 430px;
     bottom: 330px;
 }
+
+@media (hover: hover) {
+.popup__button-close:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease-in-out;
+}
+}

@@ -4,3 +4,10 @@
     margin: 30px 30px 30px 0;
     background-color: #FFFFFF;
 }
+
+@media (hover: hover) {
+.elements__like-button:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s ease-in-out;
+}
+}
