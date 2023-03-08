@@ -1,5 +1,5 @@
 .profile {
-    margin: 0;
+    margin: 40px 0 0;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -13,3 +13,9 @@
         flex-direction: column; 
     }
   } 
+
+  @media screen and (max-width: 426px) {
+    .profile  {
+        margin-top: 42px;
+    }
+  }
