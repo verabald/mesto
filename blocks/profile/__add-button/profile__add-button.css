@@ -8,6 +8,7 @@
     background-image: url(../../../images/profile-add_button.svg);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: 22px;
 }
 
 @media (hover: hover) {
@@ -21,5 +22,11 @@
     .profile__add-button {
         width: 282px;
         margin: 36px 0 0;
+    }
+  } 
+
+  @media screen and (max-width: 426px) {
+    .profile__add-button {
+        background-size: 16px;
     }
   } 
