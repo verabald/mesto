@@ -3,8 +3,8 @@
     min-height: 32px;
     margin: 0;
     position: absolute;
-    left: 430px;
-    bottom: 330px;
+    left: 440px;
+    bottom: 335px;
     background-image: url(../../../images/popup-close_icon.svg);
     background-position: center;
     background-repeat: no-repeat;
@@ -21,28 +21,21 @@
     .popup__button-close {
         min-width: 20px;
         min-height: 20px;
-        left: 330px;
+        left: 355px;
         bottom: 335px;
   } 
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 426px) {
     .popup__button-close {
-        left: 315px;
-        bottom: 335px;
-  } 
-}
-
-@media screen and (max-width: 370px) {
-    .popup__button-close {
-        left: 300px;
-        bottom: 335px;
+        left: 285px;
+        bottom: 325px;    
   } 
 }
 
 @media screen and (max-width: 345px) {
     .popup__button-close {
-        left: 255px;
+        left: 260px;
         bottom: 335px;
   } 
 }
