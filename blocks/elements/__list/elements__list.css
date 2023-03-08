@@ -4,7 +4,6 @@
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(auto-fit, 282px);
-    grid-auto-rows: minmax(auto, 361px);
     justify-content: center;
     gap: 20px 17px;
     list-style: none;
