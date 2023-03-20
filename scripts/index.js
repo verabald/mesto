@@ -33,14 +33,14 @@ const cards = [
 const cardTemplate = document.querySelector('.elements__template').content;
 const cardsList = document.querySelector('.elements__list');
 
-cards.forEach(createCard);
+cards.reverse().forEach(createCard);
 
 function createCard (item) {
     const cardElement = cardTemplate.cloneNode(true);
 	cardElement.querySelector('.elements__caption').textContent = item.title;
     cardElement.querySelector('.elements__image').src = item.link;
 
-	cardsList.append(cardElement);
+	cardsList.prepend(cardElement);
 };
 
 const popupEdit = document.querySelector('.popup_mode_edit');
@@ -85,7 +85,19 @@ function handleFormSubmit (evt) {
     closePopup(popupEdit);
 };
 
-popupFormEditing.addEventListener('submit', handleFormSubmit); 
+popupFormEditing.addEventListener('submit', handleFormSubmit);
+
+const popupFormAdding = popupAdd.querySelector('.popup__form');
 
 const titleInput = popupFormAdding.querySelector('.popup__input_field_title');
 const linkInput = popupFormAdding.querySelector('.popup__input_field_link');
+
+function handleFormSubmit (evt) {
+    evt.preventDefault(); 
+
+    createCard({title: titleInput.value, link: linkInput.value});
+
+    closePopup(popupAdd);
+};
+
+popupFormAdding.addEventListener('submit', handleFormSubmit); 
