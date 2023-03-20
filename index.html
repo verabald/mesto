@@ -31,7 +31,17 @@
 
     <section class="elements">
       <ul class="elements__list">
-        <li class="elements__card">
+        <template class="elements__template">
+          <li class="elements__card">
+            <button class="elements__delete-button button" type="button"></button>
+            <img class="elements__image">
+            <div class="elements__box">
+              <h2  class="elements__caption"></h2>
+              <button class="elements__like-button button" type="button"></button>
+            </div>
+          </li>
+        </template>
+        <!-- <li class="elements__card">
           <button class="elements__delete-button button" type="button"></button>
           <img class="elements__image" src="./images/elements-karachaevsk.jpg" alt="Старый храм на обрыве">
           <div class="elements__box">
@@ -78,7 +88,7 @@
             <h2  class="elements__caption">Карачаево-Черкесия</h2>
             <button class="elements__like-button button" type="button"></button>
           </div>
-        </li>
+        </li> -->
       </ul>
     </section>
   </main>
