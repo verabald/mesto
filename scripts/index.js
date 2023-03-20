@@ -43,37 +43,38 @@ function createCard (item) {
 	cardsList.append(cardElement);
 };
 
-const popup = document.querySelector('.popup');
+const popupEdit = document.querySelector('.popup_mode_edit');
+const popupAdd = document.querySelector('.popup_mode_add');
+
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
-const buttonClose = popup.querySelector('.popup__button-close');
-const popupForm = popup.querySelector('.popup__form');
-const nameInput = popupForm.querySelector('.popup__input_field_name');
-const jobInput = popupForm.querySelector('.popup__input_field_job');
-const nameElement = document.querySelector('.profile__name');
-const jobElement = document.querySelector('.profile__profession');
-const titleInput = popupForm.querySelector('.popup__input_field_title');
-const linkInput = popupForm.querySelector('.popup__input_field_link');
 
-const openPopupEdit = function () {
+const buttonCloseEditing = popupEdit.querySelector('.popup__button-close');
+const buttonCloseAdding = popupAdd.querySelector('.popup__button-close');
+
+function openPopup (popup) {
     popup.classList.add ('popup_opened');
+
     nameInput.value = nameElement.textContent;
     jobInput.value = jobElement.textContent;
 };
 
-buttonEdit.addEventListener('click', openPopupEdit);
+buttonEdit.addEventListener('click', () => openPopup(popupEdit));
+buttonAdd.addEventListener('click', () => openPopup(popupAdd));
 
-const openPopupAdd = function () {
-    popup.nextElementSibling.classList.add ('popup_opened');
-};
-
-buttonAdd.addEventListener('click', openPopupAdd);
-
-const closePopup = function () {
+function closePopup (popup) {
     popup.classList.remove ('popup_opened');
 };
 
-buttonClose.addEventListener('click', closePopup);
+buttonCloseEditing.addEventListener('click', () => closePopup(popupEdit));
+buttonCloseAdding.addEventListener('click', () => closePopup(popupAdd));
+
+const popupFormEditing = popupEdit.querySelector('.popup__form');
+
+const nameElement = document.querySelector('.profile__name');
+const jobElement = document.querySelector('.profile__profession');
+const nameInput = popupFormEditing.querySelector('.popup__input_field_name');
+const jobInput = popupFormEditing.querySelector('.popup__input_field_job');
 
 function handleFormSubmit (evt) {
     evt.preventDefault(); 
@@ -81,7 +82,10 @@ function handleFormSubmit (evt) {
     nameElement.textContent = nameInput.value;
     jobElement.textContent = jobInput.value;
 
-    closePopup();
+    closePopup(popupEdit);
 };
 
-popupForm.addEventListener('submit', handleFormSubmit); 
+popupFormEditing.addEventListener('submit', handleFormSubmit); 
+
+const titleInput = popupFormAdding.querySelector('.popup__input_field_title');
+const linkInput = popupFormAdding.querySelector('.popup__input_field_link');
