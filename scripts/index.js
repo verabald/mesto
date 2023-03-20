@@ -40,6 +40,10 @@ function createCard (item) {
 	cardElement.querySelector('.elements__caption').textContent = item.title;
     cardElement.querySelector('.elements__image').src = item.link;
 
+    cardElement.querySelector('.elements__like-button').addEventListener('click', function (like) {
+        like.target.classList.toggle('elements__like-button_active');
+  }); 
+
 	cardsList.prepend(cardElement);
 };
 
