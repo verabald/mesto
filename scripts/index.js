@@ -40,9 +40,14 @@ function createCard (item) {
 	cardElement.querySelector('.elements__caption').textContent = item.title;
     cardElement.querySelector('.elements__image').src = item.link;
 
-    cardElement.querySelector('.elements__like-button').addEventListener('click', function (like) {
-        like.target.classList.toggle('elements__like-button_active');
-  }); 
+    cardElement.querySelector('.elements__like-button').addEventListener('click', function (evt) {
+        evt.target.classList.toggle('elements__like-button_active');
+  });
+
+    cardElement.querySelector('.elements__delete-button').addEventListener('click', function (evt) {
+        const card = evt.target.closest('.elements__card');
+	    card.remove();
+}); 
 
 	cardsList.prepend(cardElement);
 };
