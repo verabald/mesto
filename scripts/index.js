@@ -6,27 +6,27 @@ const cards = [
 
     {
         title: 'Озеро Гижгит',
-        link: './images/elements-gizgit.jpg',
+        link: './images/elements-gizgit.jpg'
     },
 
     {
         title: 'Гора Домбай',
-        link: './images/elements-dombay.jpg',
+        link: './images/elements-dombay.jpg'
     },
 
     {
         title: 'Ущелье Адыл-су',
-        link: './images/elements-adil_su.jpg',
+        link: './images/elements-adil_su.jpg'
     },
 
     {
         title: 'Урочище Джилы-Су',
-        link: './images/elements-jili_su.jpg',
+        link: './images/elements-jili_su.jpg'
     },
 
     {
         title: 'Карачаево-Черкесия',
-        link: './images/elements-karachaevo.jpg',
+        link: './images/elements-karachaevo.jpg'
     }
 ];
 
