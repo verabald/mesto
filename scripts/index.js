@@ -64,11 +64,6 @@ const buttonCloseEditing = popupEdit.querySelector('.popup__button-close');
 const buttonCloseAdding = popupAdd.querySelector('.popup__button-close');
 const buttonCloseZooming = popupZoom.querySelector('.popup__button-close');
 
-const nameElement = document.querySelector('.profile__name');
-const jobElement = document.querySelector('.profile__profession');
-const nameInput = popupFormEditing.querySelector('.popup__input_field_name');
-const jobInput = popupFormEditing.querySelector('.popup__input_field_job');
-
 const captionElement = document.querySelector('.elements__caption');
 const captionPopup = document.querySelector('.popup__caption');
 const imageElement = document.querySelector('.elements__image');
@@ -85,9 +80,9 @@ buttonEdit.addEventListener('click', () => {
 });
 buttonAdd.addEventListener('click', () => openPopup(popupAdd));
 buttonZoom.addEventListener('click', function () {
+    openPopup(popupZoom);
     captionPopup.textContent = captionElement.textContent;
     imagePopup.src = imageElement.src;
-    openPopup(popupZoom);
 });
 
 function closePopup (popup) {
@@ -99,6 +94,11 @@ buttonCloseAdding.addEventListener('click', () => closePopup(popupAdd));
 buttonCloseZooming.addEventListener('click', () => closePopup(popupZoom));
 
 const popupFormEditing = popupEdit.querySelector('.popup__form');
+
+const nameElement = document.querySelector('.profile__name');
+const jobElement = document.querySelector('.profile__profession');
+const nameInput = popupFormEditing.querySelector('.popup__input_field_name');
+const jobInput = popupFormEditing.querySelector('.popup__input_field_job');
 
 function handleFormSubmit (evt) {
     evt.preventDefault(); 
