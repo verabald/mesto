@@ -63,12 +63,13 @@ const buttonCloseAdding = popupAdd.querySelector('.popup__button-close');
 
 function openPopup (popup) {
     popup.classList.add ('popup_opened');
-
-    nameInput.value = nameElement.textContent;
-    jobInput.value = jobElement.textContent;
 };
 
-buttonEdit.addEventListener('click', () => openPopup(popupEdit));
+buttonEdit.addEventListener('click', () => {
+    openPopup(popupEdit);
+    nameInput.value = nameElement.textContent;
+    jobInput.value = jobElement.textContent;
+});
 buttonAdd.addEventListener('click', () => openPopup(popupAdd));
 
 function closePopup (popup) {
