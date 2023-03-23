@@ -45,13 +45,13 @@ function createCard (item) {
     const cardElement = cardTemplate.cloneNode(true);
 	cardElement.querySelector('.elements__caption').textContent = item.title;
     cardElement.querySelector('.elements__image').src = item.link;
+    cardElement.querySelector('.elements__image').alt = item.title;
 
     cardElement.querySelector('.elements__image').addEventListener('click', function (evt) {
         imagePopup.src = evt.target.src;
-        captionPopup.textContent = evt.target.name;
+        captionPopup.textContent = evt.target.alt;
         openPopup (popupZoom);
-    });
-
+  });
     cardElement.querySelector('.elements__like-button').addEventListener('click', function (evt) {
         evt.target.classList.toggle('elements__like-button_active');
   });
