@@ -33,12 +33,24 @@ const cards = [
 const cardTemplate = document.querySelector('.elements__template').content;
 const cardsList = document.querySelector('.elements__list');
 
+const popupZoom = document.querySelector('.popup_mode_loupe');
+const buttonZoom = document.querySelector('.elements__image');
+
+const captionPopup = document.querySelector('.popup__caption');
+const imagePopup = document.querySelector('.popup__image');
+
 cards.reverse().forEach(createCard);
 
 function createCard (item) {
     const cardElement = cardTemplate.cloneNode(true);
 	cardElement.querySelector('.elements__caption').textContent = item.title;
     cardElement.querySelector('.elements__image').src = item.link;
+
+    cardElement.querySelector('.elements__image').addEventListener('click', function (evt) {
+        imagePopup.src = evt.target.src;
+        captionPopup.textContent = evt.target.name;
+        openPopup (popupZoom);
+    });
 
     cardElement.querySelector('.elements__like-button').addEventListener('click', function (evt) {
         evt.target.classList.toggle('elements__like-button_active');
@@ -54,20 +66,13 @@ function createCard (item) {
 
 const popupEdit = document.querySelector('.popup_mode_edit');
 const popupAdd = document.querySelector('.popup_mode_add');
-const popupZoom = document.querySelector('.popup_mode_loupe');
 
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
-const buttonZoom = document.querySelector('.elements__image');
 
 const buttonCloseEditing = popupEdit.querySelector('.popup__button-close');
 const buttonCloseAdding = popupAdd.querySelector('.popup__button-close');
 const buttonCloseZooming = popupZoom.querySelector('.popup__button-close');
-
-const captionElement = document.querySelector('.elements__caption');
-const captionPopup = document.querySelector('.popup__caption');
-const imageElement = document.querySelector('.elements__image');
-const imagePopup = document.querySelector('.popup__image');
 
 function openPopup (popup) {
     popup.classList.add ('popup_opened');
@@ -79,11 +84,6 @@ buttonEdit.addEventListener('click', () => {
     jobInput.value = jobElement.textContent;
 });
 buttonAdd.addEventListener('click', () => openPopup(popupAdd));
-buttonZoom.addEventListener('click', function () {
-    openPopup(popupZoom);
-    captionPopup.textContent = captionElement.textContent;
-    imagePopup.src = imageElement.src;
-});
 
 function closePopup (popup) {
     popup.classList.remove ('popup_opened');
