@@ -49,6 +49,7 @@ function createCard (item) {
 
     cardElement.querySelector('.elements__image').addEventListener('click', function (evt) {
         imagePopup.src = evt.target.src;
+        imagePopup.alt = evt.target.alt;
         captionPopup.textContent = evt.target.alt;
         openPopup (popupZoom);
   });
