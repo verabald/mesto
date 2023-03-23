@@ -52,6 +52,7 @@ function createCard (item) {
         captionPopup.textContent = evt.target.alt;
         openPopup (popupZoom);
   });
+  
     cardElement.querySelector('.elements__like-button').addEventListener('click', function (evt) {
         evt.target.classList.toggle('elements__like-button_active');
   });
