@@ -43,10 +43,6 @@ const popupAdd = document.querySelector('.popup_mode_add');
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 
-const buttonCloseEditing = popupEdit.querySelector('.popup__button-close');
-const buttonCloseAdding = popupAdd.querySelector('.popup__button-close');
-const buttonCloseZooming = popupZoom.querySelector('.popup__button-close');
-
 function openPopup (popup) {
     popup.classList.add ('popup_opened');
 };
@@ -66,9 +62,10 @@ function closePopup (popup) {
     popup.classList.remove ('popup_opened');
 };
 
-buttonCloseEditing.addEventListener('click', () => closePopup(popupEdit));
-buttonCloseAdding.addEventListener('click', () => closePopup(popupAdd));
-buttonCloseZooming.addEventListener('click', () => closePopup(popupZoom));
+document.querySelectorAll('.popup__button-close').forEach(button => {
+    const buttonsPopup = button.closest('.popup'); 
+    button.addEventListener('click', () => closePopup(buttonsPopup));
+  }); 
 
 const popupFormEditing = popupEdit.querySelector('.popup__form');
 
