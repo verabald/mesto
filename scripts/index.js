@@ -7,8 +7,6 @@ const buttonZoom = document.querySelector('.elements__image');
 const captionPopup = document.querySelector('.popup__caption');
 const imagePopup = document.querySelector('.popup__image');
 
-cards.reverse().forEach(createCard);
-
 function createCard (item) {
     const cardElement = cardTemplate.cloneNode(true);
     cardElement.querySelector('.elements__image').src = item.link;
@@ -29,9 +27,14 @@ function createCard (item) {
     cardElement.querySelector('.elements__delete-button').addEventListener('click', function (evt) {
         const card = evt.target.closest('.elements__card');
 	    card.remove();
-}); 
+});
+    return cardElement;
+};
 
-	cardsContainer.prepend(cardElement);
+cards.reverse().forEach(renderCard);
+
+function renderCard (item) {
+    cardsContainer.prepend(createCard(item));
 };
 
 const popupEdit = document.querySelector('.popup_mode_edit');
@@ -93,7 +96,7 @@ const linkInput = popupFormAdding.querySelector('.popup__input_field_link');
 function saveFormCard (evt) {
     evt.preventDefault(); 
 
-    createCard({title: titleInput.value, link: linkInput.value});
+    renderCard({title: titleInput.value, link: linkInput.value});
 
     closePopup(popupAdd);
 };
