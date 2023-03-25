@@ -53,7 +53,11 @@ buttonEdit.addEventListener('click', () => {
     nameInput.value = nameElement.textContent;
     jobInput.value = jobElement.textContent;
 });
-buttonAdd.addEventListener('click', () => openPopup(popupAdd));
+buttonAdd.addEventListener('click', () => {
+    openPopup(popupAdd);
+    titleInput.value = '';
+    linkInput.value = '';
+});
 
 function closePopup (popup) {
     popup.classList.remove ('popup_opened');
