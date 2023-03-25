@@ -43,14 +43,14 @@ cards.reverse().forEach(createCard);
 
 function createCard (item) {
     const cardElement = cardTemplate.cloneNode(true);
-	cardElement.querySelector('.elements__caption').textContent = item.title;
     cardElement.querySelector('.elements__image').src = item.link;
+	cardElement.querySelector('.elements__caption').textContent = item.title;
     cardElement.querySelector('.elements__image').alt = item.title;
 
     cardElement.querySelector('.elements__image').addEventListener('click', function (evt) {
-        imagePopup.src = evt.target.src;
-        imagePopup.alt = evt.target.alt;
-        captionPopup.textContent = evt.target.alt;
+        imagePopup.src = item.link;
+        captionPopup.textContent = item.title;
+        imagePopup.alt = item.title;
         openPopup (popupZoom);
   });
   
