@@ -62,6 +62,16 @@ function closePopup (popup) {
     popup.classList.remove ('popup_opened');
 };
 
+function closePopupByOverlay  (evt) { 
+    if (evt.target !== evt.currentTarget) { 
+        return; 
+    } 
+    closePopup(evt.target); 
+};
+
+popupAdd.addEventListener('click', closePopupByOverlay);
+popupEdit.addEventListener('click', closePopupByOverlay);
+
 document.querySelectorAll('.popup__button-close').forEach(button => {
     const buttonsPopup = button.closest('.popup'); 
     button.addEventListener('click', () => closePopup(buttonsPopup));
