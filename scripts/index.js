@@ -73,7 +73,7 @@ popupAdd.addEventListener('click', closePopupByOverlay);
 popupEdit.addEventListener('click', closePopupByOverlay);
 
 function closePopupByEsc (evt) {
-    if (evt.key === 'Ecsape') {
+    if (evt.key === 'Escape') {
         return;
     }
     closePopup(evt.target);
