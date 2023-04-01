@@ -52,12 +52,12 @@ function disableButton(button, { inactiveButtonClass, activeButtonClass }) {
     button.classList.add(inactiveButtonClass);
     button.classList.remove(activeButtonClass);
     button.setAttribute('disabled', true)
-}
+};
 
 function enableButton(button, { inactiveButtonClass, activeButtonClass }) {
     button.classList.remove(inactiveButtonClass);
     button.classList.add(activeButtonClass);
     button.removeAttribute('disabled', true)
-}
+};
 
 enableValidation(validationConfig);
