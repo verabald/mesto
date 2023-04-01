@@ -76,10 +76,8 @@ popupEdit.addEventListener('click', closePopupByOverlay);
 
 function closePopupByEsc(evt) {
     if (evt.key === 'Escape') {
-        const popupList = Array.from(document.querySelectorAll('.popup'));
-        popupList.forEach((popupElement) => {
-            closePopup(popupElement);
-        });
+        const popup = document.querySelector('.popup_opened');
+        closePopup(popup);
     }
 };
 
