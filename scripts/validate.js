@@ -37,6 +37,7 @@ function checkInputValidity(input, { inputErrorClass, ...rest }) {
     const spanError = document.querySelector(`#${input.id}-error`);
     if (input.checkValidity()) {
         spanError.textContent = '';
+        input.classList.remove(inputErrorClass);
     } else {
         spanError.textContent = input.validationMessage;
         input.classList.add(inputErrorClass);
@@ -44,16 +45,16 @@ function checkInputValidity(input, { inputErrorClass, ...rest }) {
 };
 
 function hasInvalidInput(inputList) {
-    return inputList.some(item => !item.validationMessage)
+    return inputList.some(item => item.validationMessage)
 };
 
-function disableButton(button, { inactiveButtonClass, activeButtonClass, ...rest}) {
+function disableButton(button, { inactiveButtonClass, activeButtonClass }) {
     button.classList.add(inactiveButtonClass);
     button.classList.remove(activeButtonClass);
     button.setAttribute('disabled', true)
 }
 
-function enableButton(button, { inactiveButtonClass, activeButtonClass, ...rest}) {
+function enableButton(button, { inactiveButtonClass, activeButtonClass }) {
     button.classList.remove(inactiveButtonClass);
     button.classList.add(activeButtonClass);
     button.removeAttribute('disabled', true)
