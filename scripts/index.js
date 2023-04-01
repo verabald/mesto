@@ -72,6 +72,16 @@ function closePopupByOverlay  (evt) {
 popupAdd.addEventListener('click', closePopupByOverlay);
 popupEdit.addEventListener('click', closePopupByOverlay);
 
+function closePopupByEsc (evt) {
+    if (evt.key === 'Ecsape') {
+        return;
+    }
+    closePopup(evt.target);
+};
+
+popupAdd.addEventListener('keydown', closePopupByEsc);
+popupEdit.addEventListener('keydown', closePopupByEsc);
+
 document.querySelectorAll('.popup__button-close').forEach(button => {
     const buttonsPopup = button.closest('.popup'); 
     button.addEventListener('click', () => closePopup(buttonsPopup));
