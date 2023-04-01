@@ -1,4 +1,5 @@
 .popup__error {
+    max-width: 350px;
     margin: 10px 0 13px;
     padding: 0;
     font-style: normal;
