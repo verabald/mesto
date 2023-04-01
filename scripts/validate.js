@@ -9,9 +9,6 @@ const validationConfig = {
 function enableValidation({ formSelector, ...rest}) {
     const formList = Array.from(document.querySelectorAll(formSelector));
     formList.forEach(form => {
-        form.addEventListener('submit', function (evt) {
-            evt.preventDefault();
-        });
         setEventListeners(form, rest)
     });
 };
