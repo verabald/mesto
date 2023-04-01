@@ -45,6 +45,7 @@ const buttonAdd = document.querySelector('.profile__add-button');
 
 function openPopup(popup) {
     popup.classList.add ('popup_opened');
+    document.addEventListener('keydown', closePopupByEsc);
 };
 
 buttonEdit.addEventListener('click', () => {
@@ -60,6 +61,7 @@ buttonAdd.addEventListener('click', () => {
 
 function closePopup(popup) {
     popup.classList.remove ('popup_opened');
+    document.removeEventListener('keydown', closePopupByEsc);
 };
 
 function closePopupByOverlay(evt) { 
@@ -80,8 +82,6 @@ function closePopupByEsc(evt) {
         });
     }
 };
-
-document.addEventListener('keydown', closePopupByEsc);
 
 document.querySelectorAll('.popup__button-close').forEach(button => {
     const buttonsPopup = button.closest('.popup'); 
