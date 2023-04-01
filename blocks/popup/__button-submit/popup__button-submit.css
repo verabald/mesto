@@ -1,6 +1,7 @@
 .popup__button-submit {
     max-width: 358px;
     min-height: 50px;
+    box-sizing: border-box;
     margin: 50px 0 37px;
     border-radius: 2px;
     background-color: #000000;
