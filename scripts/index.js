@@ -74,13 +74,14 @@ popupEdit.addEventListener('click', closePopupByOverlay);
 
 function closePopupByEsc (evt) {
     if (evt.key === 'Escape') {
-        return;
+        const popupList = Array.from(document.querySelectorAll('.popup'));
+        popupList.forEach((popupElement) => {
+            closePopup(popupElement);
+        });
     }
-    closePopup(evt.target);
 };
 
-popupAdd.addEventListener('keydown', closePopupByEsc);
-popupEdit.addEventListener('keydown', closePopupByEsc);
+document.addEventListener('keydown', closePopupByEsc);
 
 document.querySelectorAll('.popup__button-close').forEach(button => {
     const buttonsPopup = button.closest('.popup'); 
