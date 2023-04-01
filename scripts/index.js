@@ -71,9 +71,6 @@ function closePopupByOverlay(evt) {
     closePopup(evt.target); 
 };
 
-popupAdd.addEventListener('click', closePopupByOverlay);
-popupEdit.addEventListener('click', closePopupByOverlay);
-
 function closePopupByEsc(evt) {
     if (evt.key === 'Escape') {
         const popup = document.querySelector('.popup_opened');
@@ -84,6 +81,7 @@ function closePopupByEsc(evt) {
 document.querySelectorAll('.popup__button-close').forEach(button => {
     const buttonsPopup = button.closest('.popup'); 
     button.addEventListener('click', () => closePopup(buttonsPopup));
+    buttonsPopup.addEventListener('mousedown', closePopupByOverlay); 
   }); 
 
 const popupFormEditing = popupEdit.querySelector('.popup__form');
