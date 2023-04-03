@@ -112,6 +112,9 @@ function saveFormCard(evt) {
 
     renderCard({title: titleInput.value, link: linkInput.value});
 
+    const buttonSubmit = popupFormAdding.querySelector('.popup__button-submit');
+    disableButton(buttonSubmit, validationConfig);
+
     closePopup(popupAdd);
 };
 
