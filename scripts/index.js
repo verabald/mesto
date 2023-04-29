@@ -20,7 +20,7 @@ import {
     linkInput
 } from './constants.js';
 import Card from './card.js';
-import FormValidator from './validate.js';
+import FormValidator from './formvalidator.js';
 
 cards.reverse().forEach((item) => {
     createCard(item);
