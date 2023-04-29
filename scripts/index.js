@@ -54,8 +54,7 @@ buttonEdit.addEventListener('click', () => {
 buttonAdd.addEventListener('click', () => {
     openPopup(popupAdd);
     validationFormAdding.setEventListeners();
-    titleInput.value = '';
-    linkInput.value = '';
+    popupFormAdding.reset();
 });
 
 export function openImage(item) {
