@@ -9,7 +9,7 @@ export default class FormValidator {
     };
 
     enableValidation() {
-        this.setEventListeners();
+        this._setEventListeners();
     };
 
     _checkInputValidity(input) {
@@ -23,16 +23,19 @@ export default class FormValidator {
         }
     };
 
-    setEventListeners() {
-        this._disableButton();
+    toggleButton() {
+        if (this._hasInvalidInput()) {
+            this._disableButton();
+        } else {
+            this._enableButton();
+        }
+    };
+
+    _setEventListeners() {
         this._inputList.forEach((input) => {
             input.addEventListener("input", () => {
                 this._checkInputValidity(input);
-                if (this._hasInvalidInput(this._inputList)) {
-                    this._disableButton();
-                } else {
-                    this._enableButton();
-                }
+                this.toggleButton();
             });
         });
     };

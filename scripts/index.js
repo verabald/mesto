@@ -53,8 +53,8 @@ buttonEdit.addEventListener('click', () => {
 
 buttonAdd.addEventListener('click', () => {
     openPopup(popupAdd);
-    validationFormAdding.setEventListeners();
     popupFormAdding.reset();
+    validationFormAdding.toggleButton();
 });
 
 function openImage(item) {
