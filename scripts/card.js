@@ -4,8 +4,6 @@ export default class Card {
     constructor(data, templateSelector) {
         this._data = data; 
         this._templateSelector = templateSelector;
-        this._link = data.link;
-        this._title = data.title;
         this._element = this._getTemplate();
         this._image = this._element.querySelector('.elements__image');
         this._likeButton = this._element.querySelector('.elements__like-button');
@@ -24,9 +22,9 @@ export default class Card {
 
     renderCard() {
         this._setEventListener();
-        this._image.src = this._link;
-        this._element.querySelector('.elements__caption').textContent = this._title;
-        this._image.alt = this._title;
+        this._image.src = this._data.link;
+        this._element.querySelector('.elements__caption').textContent = this._data.title;
+        this._image.alt = this._data.title;
 
         return this._element;
     };
