@@ -25,7 +25,7 @@ export default class Card {
     renderCard() {
         this._setEventListener();
         this._image.src = this._link;
-	    this._element.querySelector('.elements__caption').textContent = this._title;
+        this._element.querySelector('.elements__caption').textContent = this._title;
         this._image.alt = this._title;
 
         return this._element;
