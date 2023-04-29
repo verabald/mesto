@@ -1,6 +1,4 @@
 import {
-    cards,
-    validationConfig,
     cardsContainer,
     popupZoom,
     captionPopup,
@@ -18,6 +16,10 @@ import {
     popupFormAdding,
     titleInput,
     linkInput
+} from './elements.js';
+import {
+    cards,
+    validationConfig
 } from './constants.js';
 import Card from './card.js';
 import FormValidator from './formvalidator.js';
