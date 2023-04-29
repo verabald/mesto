@@ -29,7 +29,7 @@ cards.reverse().forEach((item) => {
   });
 
 function createCard(item) {
-    const card = new Card(item, '.elements__template');
+    const card = new Card(item, '.elements__template', openImage);
     const cardElement = card.renderCard();
     cardsContainer.prepend(cardElement);
 }
@@ -57,7 +57,7 @@ buttonAdd.addEventListener('click', () => {
     popupFormAdding.reset();
 });
 
-export function openImage(item) {
+function openImage(item) {
     imagePopup.src = item.link;
     captionPopup.textContent = item.title;
     imagePopup.alt = item.title;

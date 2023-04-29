@@ -1,9 +1,8 @@
-import { openImage } from "./index.js";
-
 export default class Card {
-    constructor(data, templateSelector) {
+    constructor(data, templateSelector, openImage) {
         this._data = data; 
         this._templateSelector = templateSelector;
+        this._openImage = openImage;
         this._element = this._getTemplate();
         this._image = this._element.querySelector('.elements__image');
         this._likeButton = this._element.querySelector('.elements__like-button');
@@ -47,7 +46,7 @@ export default class Card {
         });
         
         this._image.addEventListener('click', () => {
-            openImage(this._data);
+            this._openImage(this._data);
         });
      };
 }
