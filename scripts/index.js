@@ -21,6 +21,8 @@ import FormValidator from './formvalidator.js';
 import Section from './section.js';
 import Popup from './popup.js';
 import PopupWithImage from './popupwithimage.js';
+import PopupWithForm from './popupwithform.js';
+import UserInfo from './userinfo.js';
 
 const cardsList = new Section(
     {
@@ -54,12 +56,6 @@ function handleCardClick(item) {
     popupImage.openPopupWithImage(item);
 };
 
-const validationFormAdding = new FormValidator(validationConfig, popupFormAdding);
-const validationFormEditing = new FormValidator(validationConfig, popupFormEditing);
-
-validationFormAdding.enableValidation();
-validationFormEditing.enableValidation();
-
 buttonEdit.addEventListener('click', () => {
     popupEdit.openPopup();
     nameInput.value = nameElement.textContent;
@@ -72,23 +68,18 @@ buttonAdd.addEventListener('click', () => {
     validationFormAdding.toggleButton();
 });
 
-function saveFormEdit(evt) {
-    evt.preventDefault(); 
+const popupEditForm = new PopupWithForm('.popup_mode_edit', submitForm)
+const popupAddForm = new PopupWithForm('.popup_mode_add', submitForm)
 
-    nameElement.textContent = nameInput.value;
-    jobElement.textContent = jobInput.value;
-
-    popupEdit.closePopup();
+function submitForm(inputList) {
+    createCard(inputList);
 };
 
-popupFormEditing.addEventListener('submit', saveFormEdit);
+popupEditForm.setEventListeners();
+popupAddForm.setEventListeners();
 
-function saveFormCard(evt) {
-    evt.preventDefault();
+const validationFormAdding = new FormValidator(validationConfig, popupFormAdding);
+const validationFormEditing = new FormValidator(validationConfig, popupFormEditing);
 
-    createCard( {title: titleInput.value, link: linkInput.value} );
-
-    popupAdd.closePopup();
-};
-
-popupFormAdding.addEventListener('submit', saveFormCard);
+validationFormAdding.enableValidation();
+validationFormEditing.enableValidation();
