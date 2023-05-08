@@ -23,16 +23,25 @@ import {
 } from './constants.js';
 import Card from './card.js';
 import FormValidator from './formvalidator.js';
+import Section from './section.js';
 
-cards.reverse().forEach((item) => {
-    createCard(item);
-  });
+const cardsList = new Section(
+    {
+        items: cards,
+        renderer: (item) => {
+            cardsList.addItem(createCard(item));
+        },
+    },
+    cardsContainer
+);
 
 function createCard(item) {
     const card = new Card(item, '.elements__template', openImage);
     const cardElement = card.renderCard();
-    cardsContainer.prepend(cardElement);
+    return cardElement
 }
+
+cardsList.renderItems();
 
 const validationFormAdding = new FormValidator(validationConfig, popupFormAdding);
 const validationFormEditing = new FormValidator(validationConfig, popupFormEditing);
