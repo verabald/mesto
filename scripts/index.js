@@ -1,7 +1,5 @@
 import {
     cardsContainer,
-    captionPopup,
-    imagePopup,
     buttonEdit,
     buttonAdd,
     buttonZoom,
@@ -22,6 +20,7 @@ import Card from './card.js';
 import FormValidator from './formvalidator.js';
 import Section from './section.js';
 import Popup from './popup.js';
+import PopupWithImage from './popupwithimage.js';
 
 const cardsList = new Section(
     {
@@ -34,7 +33,7 @@ const cardsList = new Section(
 );
 
 function createCard(item) {
-    const card = new Card(item, '.elements__template', openImage);
+    const card = new Card(item, '.elements__template', handleCardClick);
     const cardElement = card.renderCard();
     return cardElement
 }
@@ -48,6 +47,12 @@ const popupZoom = new Popup('.popup_mode_loupe');
 popupAdd.setEventListeners();
 popupEdit.setEventListeners();
 popupZoom.setEventListeners();
+
+const popupImage = new PopupWithImage('.popup_mode_loupe')
+
+function handleCardClick(item) {
+    popupImage.openPopupWithImage(item);
+};
 
 const validationFormAdding = new FormValidator(validationConfig, popupFormAdding);
 const validationFormEditing = new FormValidator(validationConfig, popupFormEditing);
@@ -66,13 +71,6 @@ buttonAdd.addEventListener('click', () => {
     popupFormAdding.reset();
     validationFormAdding.toggleButton();
 });
-
-function openImage(item) {
-    imagePopup.src = item.link;
-    captionPopup.textContent = item.title;
-    imagePopup.alt = item.title;
-    popupZoom.openPopup();
-};
 
 function saveFormEdit(evt) {
     evt.preventDefault(); 
