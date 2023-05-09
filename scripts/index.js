@@ -24,6 +24,8 @@ import PopupWithImage from './popupwithimage.js';
 import PopupWithForm from './popupwithform.js';
 import UserInfo from './userinfo.js';
 
+// создание карточки
+
 const cardsList = new Section(
     {
         items: cards,
@@ -38,9 +40,11 @@ function createCard(item) {
     const card = new Card(item, '.elements__template', handleCardClick);
     const cardElement = card.renderCard();
     return cardElement
-}
+};
 
 cardsList.renderItems();
+
+// попапы
 
 const popupAdd = new Popup('.popup_mode_add');
 const popupEdit = new Popup('.popup_mode_edit');
@@ -68,15 +72,23 @@ buttonAdd.addEventListener('click', () => {
     validationFormAdding.toggleButton();
 });
 
-const popupEditForm = new PopupWithForm('.popup_mode_edit', submitForm)
-const popupAddForm = new PopupWithForm('.popup_mode_add', submitForm)
+// формы
 
-function submitForm(inputList) {
-    createCard(inputList);
+const popupEditForm = new PopupWithForm('.popup_mode_edit', handleSubmitFormEdit)
+const popupAddForm = new PopupWithForm('.popup_mode_add',  handleSubmitFormAdd)
+
+function handleSubmitFormAdd(data) {
+ 
+};
+
+function handleSubmitFormEdit() {
+    
 };
 
 popupEditForm.setEventListeners();
 popupAddForm.setEventListeners();
+
+// валидация
 
 const validationFormAdding = new FormValidator(validationConfig, popupFormAdding);
 const validationFormEditing = new FormValidator(validationConfig, popupFormEditing);
