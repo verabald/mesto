@@ -49,4 +49,4 @@ export default class Card {
             this._openImage(this._data);
         });
      };
-}
+};
