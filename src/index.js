@@ -11,18 +11,19 @@ import {
     jobElement,
     nameInput,
     jobInput
-} from './elements.js';
+} from './assets/elements.js';
 import {
     cards,
     validationConfig
-} from './constants.js';
-import Card from './Сard.js';
-import FormValidator from './FormValidator.js';
-import Section from './Section.js';
-import Popup from './Popup.js';
-import PopupWithImage from './PopupWithImage.js';
-import PopupWithForm from './PopupWithForm.js';
-import UserInfo from './UserInfo.js';
+} from './assets/constants.js';
+import './pages/index.css';
+import Card from './components/Сard.js';
+import FormValidator from './components/FormValidator.js';
+import Section from './components/Section.js';
+import Popup from './components/Popup.js';
+import PopupWithImage from './components/PopupWithImage.js';
+import PopupWithForm from './components/PopupWithForm.js';
+import UserInfo from './components/UserInfo.js';
 
 const cardsList = new Section(
     {

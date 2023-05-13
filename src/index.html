@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Интерактивная галерея</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Фотографии примечательных мест с интерактивными элементами">
@@ -12,14 +11,14 @@
 
   <header class="header">
     <a class="header__link" href="#">
-      <img class="header__logo" src="./images/header-logo.svg" alt="Логотип Место Россия">
+      <img class="header__logo" src="<%=require('./images/header-logo.svg')%>" alt="Логотип Место Россия">
     </a>
   </header>
 
   <main class="main section">
     <section class="profile">
       <div class="profile__item">
-      <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватар профиля">
+      <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватар профиля">
       <div class="profile__info">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__edit-button button" type="button"></button>
@@ -81,13 +80,10 @@
     <div class="popup__image-container">
       <button class="popup__button-close button" type="button"></button>
       <figure class="popup__figure">
-        <img class="popup__image" src="./images/elements-karachaevo.jpg" alt="церковь на обрыве">
+        <img class="popup__image" src="<%=require('./images/elements-karachaevo.jpg')%>" alt="церковь на обрыве">
         <figcaption class="popup__caption"></figcaption>
       </figure>
     </div>
   </div>
-
-  <script type="module" src="./scripts/index.js"></script>
-
 </body>
 </html>

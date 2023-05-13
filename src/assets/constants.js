@@ -1,32 +1,39 @@
+const karachaevskImage = new URL('../images/elements-karachaevsk.jpg', import.meta.url);
+const gizgitImage = new URL('../images/elements-gizgit.jpg', import.meta.url);
+const dombayImage = new URL('../images/elements-dombay.jpg', import.meta.url);
+const adilsuImage = new URL('../images/elements-adil_su.jpg', import.meta.url);
+const jilisuImage = new URL('../images/elements-jili_su.jpg', import.meta.url);
+const karachaevoImage = new URL('../images/elements-karachaevo.jpg', import.meta.url);
+
 const cards = [
     {
         title: 'Карачаевск',
-        link: './images/elements-karachaevsk.jpg',
+        link: karachaevskImage
     },
 
     {
         title: 'Озеро Гижгит',
-        link: './images/elements-gizgit.jpg'
+        link: gizgitImage
     },
 
     {
         title: 'Гора Домбай',
-        link: './images/elements-dombay.jpg'
+        link: dombayImage
     },
 
     {
         title: 'Ущелье Адыл-су',
-        link: './images/elements-adil_su.jpg'
+        link: adilsuImage
     },
 
     {
         title: 'Урочище Джилы-Су',
-        link: './images/elements-jili_su.jpg'
+        link: jilisuImage
     },
 
     {
         title: 'Карачаево-Черкесия',
-        link: './images/elements-karachaevo.jpg'
+        link: karachaevoImage
     }
 ];
 
