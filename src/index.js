@@ -60,10 +60,8 @@ function handleCardClick(item) {
 const userProfile = new UserInfo(nameElement, jobElement);
 
 buttonEdit.addEventListener('click', () => {
-    const data = userProfile.getUserInfo();
-    nameInput.value = data.name;
-    jobInput.value = data.job;
     userPopupEdit.openPopup();
+    popupEditForm.setInputValues(userProfile.getUserInfo());
 });
 
 buttonAdd.addEventListener('click', () => {
