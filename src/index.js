@@ -54,7 +54,7 @@ userPopupZoom.setEventListeners();
 const popupImage = new PopupWithImage('.popup_mode_loupe');
 
 function handleCardClick(item) {
-    popupImage.openPopupWithImage(item);
+    popupImage.openPopup(item);
 };
 
 const userProfile = new UserInfo(nameElement, jobElement);
