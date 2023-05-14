@@ -6,19 +6,18 @@ import {
     buttonAdd,
     nameElement,
     jobElement
-} from './assets/elements.js';
+} from '../assets/elements.js';
 import {
     cards,
     validationConfig
-} from './assets/constants.js';
-import './pages/index.css';
-import Card from './components/Сard.js';
-import FormValidator from './components/FormValidator.js';
-import Section from './components/Section.js';
-import Popup from './components/Popup.js';
-import PopupWithImage from './components/PopupWithImage.js';
-import PopupWithForm from './components/PopupWithForm.js';
-import UserInfo from './components/UserInfo.js';
+} from '../assets/constants.js';
+import './index.css';
+import Card from '../components/Сard.js';
+import FormValidator from '../components/FormValidator.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 
 const cardsList = new Section(
     {
