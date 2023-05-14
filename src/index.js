@@ -1,16 +1,11 @@
 import {
     popupAdd,
     popupEdit,
-    popupZoom,
-    popupFormAdding,
     cardsContainer,
-    buttonZoom,
     buttonEdit,
     buttonAdd,
     nameElement,
-    jobElement,
-    nameInput,
-    jobInput
+    jobElement
 } from './assets/elements.js';
 import {
     cards,
@@ -43,34 +38,25 @@ function createCard(item) {
 
 cardsList.renderItems();
 
-const userPopupAdd = new Popup('.popup_mode_add');
-const userPopupEdit = new Popup('.popup_mode_edit');
-const userPopupZoom = new Popup('.popup_mode_loupe');
-
-userPopupAdd.setEventListeners();
-userPopupEdit.setEventListeners();
-userPopupZoom.setEventListeners();
-
+const popupEditForm = new PopupWithForm('.popup_mode_edit', handleSubmitFormEdit);
+const popupAddForm = new PopupWithForm('.popup_mode_add',  handleSubmitFormAdd);
 const popupImage = new PopupWithImage('.popup_mode_loupe');
+
+const userProfile = new UserInfo(nameElement, jobElement);
 
 function handleCardClick(item) {
     popupImage.openPopup(item);
 };
 
-const userProfile = new UserInfo(nameElement, jobElement);
-
 buttonEdit.addEventListener('click', () => {
-    userPopupEdit.openPopup();
+    popupEditForm.openPopup();
     popupEditForm.setInputValues(userProfile.getUserInfo());
 });
 
 buttonAdd.addEventListener('click', () => {
-    userPopupAdd.openPopup();
+    popupAddForm.openPopup();
     validationFormAdding.toggleButton();
 });
-
-const popupEditForm = new PopupWithForm('.popup_mode_edit', handleSubmitFormEdit);
-const popupAddForm = new PopupWithForm('.popup_mode_add',  handleSubmitFormAdd);
 
 function handleSubmitFormEdit(inputValues) {
     const data = {  
@@ -78,7 +64,7 @@ function handleSubmitFormEdit(inputValues) {
         job:  inputValues.profession
      };
     userProfile.setUserInfo(data);
-    userPopupEdit.closePopup();
+    popupEditForm.closePopup();
 };
 
 function handleSubmitFormAdd(inputValues) {
@@ -87,12 +73,12 @@ function handleSubmitFormAdd(inputValues) {
         link:  inputValues.link
      };
     cardsList.addItem(createCard(data));
-    userPopupAdd.closePopup();
-    popupFormAdding.reset();
+    popupAddForm.closePopup();
 };
 
 popupEditForm.setEventListeners();
 popupAddForm.setEventListeners();
+popupImage.setEventListeners();
 
 const validationFormAdding = new FormValidator(validationConfig, popupAdd);
 const validationFormEditing = new FormValidator(validationConfig, popupEdit);
