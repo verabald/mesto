@@ -54,7 +54,7 @@ buttonEdit.addEventListener('click', () => {
 
 buttonAdd.addEventListener('click', () => {
     popupAddForm.openPopup();
-    validationFormAdding.toggleButton();
+    formValidators['add-card'].resetValidation();
 });
 
 function handleSubmitFormEdit(inputValues) {
@@ -79,8 +79,17 @@ popupEditForm.setEventListeners();
 popupAddForm.setEventListeners();
 popupImage.setEventListeners();
 
-const validationFormAdding = new FormValidator(validationConfig, popupAdd);
-const validationFormEditing = new FormValidator(validationConfig, popupEdit);
+const formValidators = {};
 
-validationFormAdding.enableValidation();
-validationFormEditing.enableValidation();
+const enableValidation = (config) => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector))
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement)
+    const formName = formElement.getAttribute('name')
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+
+enableValidation(validationConfig);
