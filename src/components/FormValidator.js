@@ -3,7 +3,7 @@ export default class FormValidator {
         this._validationConfig = validationConfig;
         this._form = form;
         this._inputList = Array.from(this._form.querySelectorAll(validationConfig.inputSelector));
-        this._submitButtonSelector = this._form.querySelector(validationConfig.submitButtonSelector);
+        this._submitButton = this._form.querySelector(validationConfig.submitButtonSelector);
         this._inactiveButtonClass = validationConfig.inactiveButtonClass;
         this._inputErrorClass = validationConfig.inputErrorClass;
     };
@@ -45,12 +45,12 @@ export default class FormValidator {
     };
     
     _disableButton() {
-        this._submitButtonSelector.classList.add(this._inactiveButtonClass);
-        this._submitButtonSelector.setAttribute('disabled', true)
+        this._submitButton.classList.add(this._inactiveButtonClass);
+        this._submitButton.setAttribute('disabled', true)
     };
 
     _enableButton() {
-        this._submitButtonSelector.classList.remove(this._inactiveButtonClass);
-        this._submitButtonSelector.removeAttribute('disabled', true)
+        this._submitButton.classList.remove(this._inactiveButtonClass);
+        this._submitButton.removeAttribute('disabled', true)
     };
 };
