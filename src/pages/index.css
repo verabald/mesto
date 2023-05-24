@@ -48,8 +48,10 @@
 @import url(../blocks/popup/__input/_field/popup__input_field_name.css);
 @import url(../blocks/popup/__input/_field/popup__input_field_title.css);
 @import url(../blocks/popup/__input/_field/popup__input_field_link.css);
+@import url(../blocks/popup/__input/_field/popup__input_field_avatar.css);
 @import url(../blocks/popup/_mode/popup_mode_add.css);
 @import url(../blocks/popup/_mode/popup_mode_edit.css);
 @import url(../blocks/popup/_mode/popup_mode_loupe.css);
 @import url(../blocks/popup/_mode/popup_mode_confirm.css);
+@import url(../blocks/popup/_mode/popup_mode_avatar.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
