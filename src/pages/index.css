@@ -51,4 +51,5 @@
 @import url(../blocks/popup/_mode/popup_mode_add.css);
 @import url(../blocks/popup/_mode/popup_mode_edit.css);
 @import url(../blocks/popup/_mode/popup_mode_loupe.css);
+@import url(../blocks/popup/_mode/popup_mode_confirm.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
