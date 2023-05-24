@@ -17,11 +17,13 @@
 @import url(../blocks/profile/__profession/profile__profession.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__box/elements__box.css);
+@import url(../blocks/elements/__box-like/elements__box-like.css);
 @import url(../blocks/elements/__caption/elements__caption.css);
 @import url(../blocks/elements/__template/elements__template.css);
 @import url(../blocks/elements/__card/elements__card.css);
 @import url(../blocks/elements/__image/elements__image.css);
 @import url(../blocks/elements/__like-button/elements__like-button.css);
+@import url(../blocks/elements/__like-counter/elements__like-counter.css);
 @import url(../blocks/elements/__like-button/_active/elements__like-button_active.css);
 @import url(../blocks/elements/__delete-button/elements__delete-button.css);
 @import url(../blocks/elements/__list/elements__list.css);
