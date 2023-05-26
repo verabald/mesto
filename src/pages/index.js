@@ -9,7 +9,8 @@ import {
 } from '../assets/elements.js';
 import {
     cards,
-    validationConfig
+    validationConfig,
+    apiOptions
 } from '../assets/constants.js';
 import './index.css';
 import Card from '../components/Сard.js';
@@ -18,6 +19,9 @@ import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
+import Api from '../components/Api.js';
+
+const api = new Api(apiOptions); 
 
 const cardsList = new Section(
     {
