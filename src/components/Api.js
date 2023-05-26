@@ -9,7 +9,7 @@ export default class Api {
         if (res.ok) {
             return res.json();
         }
-        return Promise.reject(`Ошибка: ${res.status}`);
+        return Promise.reject(`Что-то пошло не так: ${res.status}`);
     };
   
     getInitialCards() {
@@ -33,30 +33,7 @@ export default class Api {
         .then(res => this._test(res))
     };
 
-    likeCard(id) {
-        return fetch(`${this._url}/cards/${id}/likes`, {
-            method: 'PUT',
-            headers: this._headers,
-        })
-        .then(res => this._test(res))
-    };
-
-    deleteLikeCard(id) {
-        return fetch(`${this._url}/cards/${id}/likes`, {
-            method: 'DELETE',
-            headers: this._headers,
-        })
-        .then(res => this._test(res))
-    };
-
-    deleteCard(id) {
-        return fetch(`${this._url}/cards/${id}`, {
-            method: 'DELETE',
-            headers: this._headers,
-        })
-        .then(res => this._test(res))
-    };
-
+    
     getUserInfoApi() {
         return fetch(`${this._url}/users/me`, {
             headers: {
@@ -85,6 +62,30 @@ export default class Api {
             body: JSON.stringify({
                 avatar: data.avatar,
             }),
+        })
+        .then(res => this._test(res))
+    };
+
+    deleteCard(id) {
+        return fetch(`${this._url}/cards/${id}`, {
+            method: 'DELETE',
+            headers: this._headers,
+        })
+        .then(res => this._test(res))
+    };
+
+    likeCard(id) {
+        return fetch(`${this._url}/cards/${id}/likes`, {
+            method: 'PUT',
+            headers: this._headers,
+        })
+        .then(res => this._test(res))
+    };
+
+    deleteLike(id) {
+        return fetch(`${this._url}/cards/${id}/likes`, {
+            method: 'DELETE',
+            headers: this._headers,
         })
         .then(res => this._test(res))
     };
