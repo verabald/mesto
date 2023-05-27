@@ -2,7 +2,7 @@ const cardsContainer = document.querySelector('.elements__list');
 
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
-const openEditAvatar = document.querySelector('.profile__avatar');
+const buttonEditAvatar = document.querySelector('.profile__avatar');
 
 const popupEdit = document.querySelector('.popup_mode_edit');
 const popupAdd = document.querySelector('.popup_mode_add');
@@ -19,6 +19,6 @@ export {
     cardsContainer,
     buttonEdit,
     buttonAdd,
-    openEditAvatar,
+    buttonEditAvatar,
     profile
 };

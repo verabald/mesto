@@ -4,7 +4,7 @@ import {
     cardsContainer,
     buttonEdit,
     buttonAdd,
-    openEditAvatar,
+    buttonEditAvatar,
     profile
 } from '../assets/elements.js';
 
@@ -32,7 +32,7 @@ Promise.all( [api.getInitialCards(), api.getUserInfoApi()] )
     const userId = user._id;
     cardsList.renderItems(card, userId);
     userProfile.setUserInfo(user);
-    userProfile.setAvatar(user);
+    userProfile.setUserAvatar(user);
 })
 .catch((err) => console.log(err))
 
@@ -110,10 +110,27 @@ const popupAddForm = new PopupWithForm('.popup_mode_add', {
     }
 });
 
-
 const popupImage = new PopupWithImage('.popup_mode_loupe');
 
 const userProfile = new UserInfo(profile);
+
+const popupAvatarForm = new PopupWithForm('.popup_mode_avatar', {
+    handleSubmit: (inputValue) => {
+        const data = {  
+            avatar:  inputValue.src
+         };
+        popupAvatarForm.showLoader(true);
+        api.setAvatar(data)
+        .then((res) => {
+            userProfile.setUserAvatar(res)
+            popupAvatarForm.closePopup();
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+            popupAvatarForm.showLoader(false);
+        })
+    }
+});
 
 buttonEdit.addEventListener('click', () => {
     popupEditForm.openPopup();
@@ -126,8 +143,14 @@ buttonAdd.addEventListener('click', () => {
     formValidators['add-card'].resetValidation();
 });
 
+buttonEditAvatar.addEventListener('click', () => {
+    popupAvatarForm.openPopup();
+    formValidators['add-avatar'].resetValidation();
+});
+
 popupEditForm.setEventListeners();
 popupAddForm.setEventListeners();
+popupAvatarForm.setEventListeners();
 popupImage.setEventListeners();
 
 const formValidators = {};
