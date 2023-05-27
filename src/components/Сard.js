@@ -60,10 +60,11 @@ export default class Card {
     };
 
     showLikes(card) {
-        if (card.likes.length === 0) {
+        this._likes = card.likes;
+        if (this._likes.length === 0) {
             this._counter.textContent = '';
         } else {
-            this._counter.textContent = card.likes.length
+            this._counter.textContent = this._likes.length
         };
 
         if (this._checkLike()) {
