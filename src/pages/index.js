@@ -91,7 +91,26 @@ const popupEditForm = new PopupWithForm('.popup_mode_edit', {
     }
 });
 
-const popupAddForm = new PopupWithForm('.popup_mode_add',  handleSubmitFormAdd);
+const popupAddForm = new PopupWithForm('.popup_mode_add', {
+    handleSubmit: (inputValues) => {
+        const data = {  
+            name: inputValues.title, 
+            link:  inputValues.link
+         };
+        popupAddForm.showLoader(true);
+        api.addCard(data)
+        .then((res) => {
+            cardsList.addItem(createCard(res));
+            popupAddForm.closePopup();
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+            popupAddForm.showLoader(false);
+        })
+    }
+});
+
+
 const popupImage = new PopupWithImage('.popup_mode_loupe');
 
 const userProfile = new UserInfo(profile);
@@ -99,21 +118,13 @@ const userProfile = new UserInfo(profile);
 buttonEdit.addEventListener('click', () => {
     popupEditForm.openPopup();
     popupEditForm.setInputValues(userProfile.getUserInfo());
+    formValidators['info'].resetValidation();
 });
 
 buttonAdd.addEventListener('click', () => {
     popupAddForm.openPopup();
     formValidators['add-card'].resetValidation();
 });
-
-function handleSubmitFormAdd(inputValues) {
-    const data = {  
-        title: inputValues.title, 
-        link:  inputValues.link
-     };
-    cardsList.addItem(createCard(data));
-    popupAddForm.closePopup();
-};
 
 popupEditForm.setEventListeners();
 popupAddForm.setEventListeners();
