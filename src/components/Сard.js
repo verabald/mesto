@@ -49,7 +49,7 @@ export default class Card {
 
     _checkLike() {
         return this._likes.some((like) => like._id === this._userId);
-    }
+    };
 
     _toggleLike() {
         if (this._checkLike()) {

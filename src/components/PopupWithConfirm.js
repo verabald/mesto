@@ -17,7 +17,7 @@ export default class PopupWithConfirm extends Popup {
     showLoader(loader) {
         if (!this._buttonSubmit) return;
         if (loader) {
-            this._buttonSubmit.textContent = 'Сохранение...';
+            this._buttonSubmit.textContent = 'Удаление...';
         } else {
             this._buttonSubmit.textContent = this._buttonText;
         };

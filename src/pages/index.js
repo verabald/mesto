@@ -134,7 +134,6 @@ const popupAvatarForm = new PopupWithForm('.popup_mode_avatar', {
 
 const popupConfirmForm = new PopupWithConfirm('.popup_mode_confirm', {
     handleSubmit: (card, id) => {
-        console.log(card)
         popupConfirmForm.showLoader(true);
         api.deleteCard(id)
         .then(() => {
