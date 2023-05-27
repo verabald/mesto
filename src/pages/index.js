@@ -1,6 +1,4 @@
 import {
-    popupAdd,
-    popupEdit,
     cardsContainer,
     buttonEdit,
     buttonAdd,
@@ -9,7 +7,6 @@ import {
 } from '../assets/elements.js';
 
 import {
-    cards,
     validationConfig,
     apiOptions
 } from '../assets/constants.js';
@@ -48,10 +45,13 @@ const cardsList = new Section(
 const createCard = (item, id) => {
     const card = new Card({
         data: item, 
-        id: id, 
+        userId: id, 
         templateSelector: '.elements__template', 
         handleCardClick: (item) => {
             popupImage.openPopup(item);
+        },
+        handleCardDelete: (id, item) => {
+            popupConfirmForm.openPopup(id, item);
         },
         handleCardLike: (id) => {
             api.likeCard(id)
@@ -132,6 +132,23 @@ const popupAvatarForm = new PopupWithForm('.popup_mode_avatar', {
     }
 });
 
+const popupConfirmForm = new PopupWithConfirm('.popup_mode_confirm', {
+    handleSubmit: (card, id) => {
+        console.log(card)
+        popupConfirmForm.showLoader(true);
+        api.deleteCard(id)
+        .then(() => {
+            card.onDelete();
+            popupConfirmForm.closePopup();
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+            popupConfirmForm.showLoader(false);
+        })
+    }
+});
+
+
 buttonEdit.addEventListener('click', () => {
     popupEditForm.openPopup();
     popupEditForm.setInputValues(userProfile.getUserInfo());
@@ -151,6 +168,7 @@ buttonEditAvatar.addEventListener('click', () => {
 popupEditForm.setEventListeners();
 popupAddForm.setEventListeners();
 popupAvatarForm.setEventListeners();
+popupConfirmForm.setEventListeners();
 popupImage.setEventListeners();
 
 const formValidators = {};
