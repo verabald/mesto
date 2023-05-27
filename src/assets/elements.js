@@ -9,12 +9,17 @@ const popupAdd = document.querySelector('.popup_mode_add');
 const nameElement = document.querySelector('.profile__name');
 const jobElement = document.querySelector('.profile__profession');
 
+const profile = {
+    nameElement: '.profile__name',
+    jobElement: '.profile__profession',
+    avatarElement:'.profile__image'
+};
+
 export {
     popupAdd,
     popupEdit,
     cardsContainer,
     buttonEdit,
     buttonAdd,
-    nameElement,
-    jobElement
+    profile
 };

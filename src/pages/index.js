@@ -4,15 +4,17 @@ import {
     cardsContainer,
     buttonEdit,
     buttonAdd,
-    nameElement,
-    jobElement
+    profile
 } from '../assets/elements.js';
+
 import {
     cards,
     validationConfig,
     apiOptions
 } from '../assets/constants.js';
+
 import './index.css';
+
 import Card from '../components/Сard.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
@@ -28,6 +30,8 @@ Promise.all( [api.getInitialCards(), api.getUserInfoApi()] )
 .then(( [card, user] ) => {
     const userId = user._id;
     cardsList.renderItems(card, userId);
+    userProfile.setUserInfo(user);
+    userProfile.setAvatar(user);
 })
 .catch((err) => console.log(err))
 
@@ -67,13 +71,11 @@ const createCard = (item, id) => {
     return card.renderCard();
 };
 
-
-
 const popupEditForm = new PopupWithForm('.popup_mode_edit', handleSubmitFormEdit);
 const popupAddForm = new PopupWithForm('.popup_mode_add',  handleSubmitFormAdd);
 const popupImage = new PopupWithImage('.popup_mode_loupe');
 
-const userProfile = new UserInfo(nameElement, jobElement);
+const userProfile = new UserInfo(profile);
 
 buttonEdit.addEventListener('click', () => {
     popupEditForm.openPopup();
@@ -88,7 +90,7 @@ buttonAdd.addEventListener('click', () => {
 function handleSubmitFormEdit(inputValues) {
     const data = {  
         name: inputValues.name, 
-        job:  inputValues.profession
+        about:  inputValues.profession
      };
     userProfile.setUserInfo(data);
     popupEditForm.closePopup();

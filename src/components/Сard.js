@@ -47,14 +47,14 @@ export default class Card {
     };
 
     _checkLike() {
-        return this._likes.some(like => like._id === this._userId);
+        return this._likes.find((like) => like._id === this._userId);
     }
 
     _toggleLike() {
         if (this._checkLike()) {
-            this._handleCardDeleteLike(this.cardId);
+            this._handleCardDeleteLike(this._cardId);
         } else {
-            this._handleCardLike(this.cardId);
+            this._handleCardLike(this._cardId);
         };
     };
 
