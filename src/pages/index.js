@@ -147,7 +147,6 @@ const popupConfirmForm = new PopupWithConfirm('.popup_mode_confirm', {
     }
 });
 
-
 buttonEdit.addEventListener('click', () => {
     popupEditForm.openPopup();
     popupEditForm.setInputValues(userProfile.getUserInfo());
