@@ -4,6 +4,7 @@ import {
     cardsContainer,
     buttonEdit,
     buttonAdd,
+    openEditAvatar,
     profile
 } from '../assets/elements.js';
 
@@ -71,7 +72,25 @@ const createCard = (item, id) => {
     return card.renderCard();
 };
 
-const popupEditForm = new PopupWithForm('.popup_mode_edit', handleSubmitFormEdit);
+const popupEditForm = new PopupWithForm('.popup_mode_edit', {
+    handleSubmit: (inputValues) => {
+        const data = {  
+            name: inputValues.name, 
+            about:  inputValues.profession
+         };
+        popupEditForm.showLoader(true);
+        api.setUserInfoApi(data)
+        .then((res) => {
+            userProfile.setUserInfo(res);
+            popupEditForm.closePopup();
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+            popupEditForm.showLoader(false);
+        })
+    }
+});
+
 const popupAddForm = new PopupWithForm('.popup_mode_add',  handleSubmitFormAdd);
 const popupImage = new PopupWithImage('.popup_mode_loupe');
 
@@ -86,15 +105,6 @@ buttonAdd.addEventListener('click', () => {
     popupAddForm.openPopup();
     formValidators['add-card'].resetValidation();
 });
-
-function handleSubmitFormEdit(inputValues) {
-    const data = {  
-        name: inputValues.name, 
-        about:  inputValues.profession
-     };
-    userProfile.setUserInfo(data);
-    popupEditForm.closePopup();
-};
 
 function handleSubmitFormAdd(inputValues) {
     const data = {  

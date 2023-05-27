@@ -14,12 +14,12 @@ export default class PopupWithConfirm extends Popup {
         this.card = card;
     };
 
-    showLoader(loader, text) {
+    showLoader(loader) {
         if (!this._buttonSubmit) return;
         if (loader) {
-            this._buttonText = text;
+            this._buttonSubmit.textContent = 'Сохранение...';
         } else {
-            this._buttonText = this._buttonSubmit.textContent;
+            this._buttonSubmit.textContent = this._buttonText;
         };
     };
 
