@@ -8,10 +8,10 @@ export default class PopupWithConfirm extends Popup {
         this._buttonText = this._buttonSubmit.textContent;
     };
 
-    openPopup(card, id) {
+    openPopup(id, card) {
         super.openPopup();
-        this.id = id;
-        this.card = card;
+        this._id = id;
+        this._card = card;
     };
 
     showLoader(loader) {
@@ -26,7 +26,7 @@ export default class PopupWithConfirm extends Popup {
     setEventListeners() {
         super.setEventListeners();
         this._buttonSubmit.addEventListener('click', () => {
-            this._handleSubmit(this.id, this.card);
+            this._handleSubmit(this._id, this._card);
         });
     };
 };
