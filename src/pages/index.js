@@ -23,6 +23,7 @@ import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js';
 
 const api = new Api(apiOptions); 
+let userId;
 
 Promise.all( [api.getInitialCards(), api.getUserInfoApi()] )
 .then(( [card, user] ) => {
@@ -100,7 +101,7 @@ const popupAddForm = new PopupWithForm('.popup_mode_add', {
         popupAddForm.showLoader(true);
         api.addCard(data)
         .then((res) => {
-            cardsList.addItem(createCard(res));
+            cardsList.addItem(createCard(res, userId));
             popupAddForm.closePopup();
         })
         .catch((err) => console.log(err))
