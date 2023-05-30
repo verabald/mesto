@@ -27,7 +27,7 @@ let userId;
 
 Promise.all( [api.getInitialCards(), api.getUserInfoApi()] )
 .then(( [card, user] ) => {
-    const userId = user._id;
+    userId = user._id;
     cardsList.renderItems(card, userId);
     userProfile.setUserInfo(user);
     userProfile.setUserAvatar(user);
